@@ -1,7 +1,7 @@
 export default function DisplayGuests({
   guests,
   deleteGuest,
-  updateAttendance,
+  toggleAttendance,
 }) {
   return (
     <div>
@@ -14,8 +14,8 @@ export default function DisplayGuests({
               aria-label="attending"
               type="checkbox"
               checked={guest.attending}
-              onChange={() => {
-                updateAttendance(guest.id);
+              onChange={(event) => {
+                toggleAttendance(guest.id, event.currentTarget.checked);
               }}
             />
             <button

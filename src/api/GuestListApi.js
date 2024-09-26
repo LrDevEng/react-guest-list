@@ -1,3 +1,4 @@
+// Guest list api base url
 const baseUrl = 'http://localhost:4000';
 
 // Api guest object definition
@@ -28,7 +29,10 @@ export async function addGuest(guest) {
 // Get all guests from guest list
 export async function getAllGuests() {
   const response = await fetch(`${baseUrl}/guests`);
-  return await response.json();
+
+  const allGuests = await response.json();
+  console.log(allGuests);
+  return allGuests;
 }
 
 // R --> Read
