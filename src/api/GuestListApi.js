@@ -29,10 +29,7 @@ export async function addGuest(guest) {
 // Get all guests from guest list
 export async function getAllGuests() {
   const response = await fetch(`${baseUrl}/guests`);
-
-  const allGuests = await response.json();
-  console.log(allGuests);
-  return allGuests;
+  return await response.json();
 }
 
 // R --> Read

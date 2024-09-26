@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-export default function AddGuest({ handleNewGuest }) {
+export default function AddGuest({ handleNewGuest, disabled }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
   return (
     <div>
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form disabled={disabled} onSubmit={(event) => event.preventDefault()}>
         <label htmlFor="first-name">First name</label>
         <input
           id="first-name"
