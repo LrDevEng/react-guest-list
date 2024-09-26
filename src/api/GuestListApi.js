@@ -1,5 +1,5 @@
 // Guest list api base url
-const baseUrl = 'http://localhost:4000';
+const baseUrl = 'https://7kghf7-4000.csb.app';
 
 // Api guest object definition
 // type Guest = {
