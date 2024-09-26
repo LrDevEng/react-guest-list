@@ -15,18 +15,6 @@ export default function GuestList() {
   }, []);
 
   function handleNewGuest(firstName, lastName) {
-    // console.log(firstName, lastName);
-    // setGuests([
-    //   ...guests,
-    //   {
-    //     id: guests.length > 0 ? guests[guests.length - 1].id + 1 : 1,
-    //     firstName: firstName,
-    //     lastName: lastName,
-    //     deadline: '',
-    //     attending: false,
-    //   },
-    // ]);
-
     guestListApi
       .addGuest({
         firstName: firstName,
@@ -39,9 +27,6 @@ export default function GuestList() {
   }
 
   function deleteGuest(id) {
-    // const guestsCopy = [...guests];
-    // setGuests(guestsCopy.filter((guest) => guest.id !== id));
-
     guestListApi
       .deleteGuest(id)
       .then((deletedGuest) => {
@@ -52,15 +37,6 @@ export default function GuestList() {
   }
 
   function toggleAttendance(id, isAttending) {
-    // setGuests(
-    //   guests.map((guest) => {
-    //     if (guest.id === id) {
-    //       guest.attending = !guest.attending;
-    //     }
-    //     return guest;
-    //   }),
-    // );
-
     guestListApi
       .updateGuest(id, { attending: isAttending })
       .then((updatedGuest) => {
