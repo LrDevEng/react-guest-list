@@ -14,7 +14,9 @@ export default function GuestList() {
     guestListApi
       .getAllGuests()
       .then((allGuests) => setGuests(allGuests))
-      .then(setIsLoading(false))
+      .then(() => {
+        setIsLoading(false);
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -65,6 +67,7 @@ export default function GuestList() {
       {isLoading ? (
         <div>
           Loading...
+          <br />
           <LoadingSpinner />
         </div>
       ) : (
