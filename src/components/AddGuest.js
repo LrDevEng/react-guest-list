@@ -9,6 +9,7 @@ export default function AddGuest({ handleNewGuest, disabled }) {
       <form disabled={disabled} onSubmit={(event) => event.preventDefault()}>
         <label htmlFor="first-name">First name</label>
         <input
+          disabled={disabled}
           id="first-name"
           value={firstName}
           onChange={(event) => setFirstName(event.currentTarget.value)}
@@ -16,6 +17,7 @@ export default function AddGuest({ handleNewGuest, disabled }) {
 
         <label htmlFor="last-name">Last name</label>
         <input
+          disabled={disabled}
           id="last-name"
           value={lastName}
           onChange={(event) => setLastName(event.currentTarget.value)}
