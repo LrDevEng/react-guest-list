@@ -13,7 +13,7 @@ export default function GuestList() {
 
   const [showAddMenuSmall, setShowAddMenuSmall] = useState(false);
 
-  const deflate = useMediaQuery({ maxWidth: 1200 });
+  const deflate = useMediaQuery({ maxWidth: 960 });
 
   // Initial fetch of guest list from api
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function GuestList() {
           }}
         >
           {showAddMenuSmall && (
-            <section>
+            <section style={{ visible: showAddMenuSmall }}>
               <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
             </section>
           )}
