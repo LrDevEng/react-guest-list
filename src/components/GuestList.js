@@ -11,7 +11,7 @@ export default function GuestList() {
   const [guests, setGuests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [showAddMenuSmall, setShowAddMenuSmall] = useState(false);
+  const [showAddMenuSmall, setShowAddMenuSmall] = useState(true);
 
   const deflate = useMediaQuery({ maxWidth: 960 });
 
