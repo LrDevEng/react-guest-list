@@ -1,0 +1,49 @@
+.container {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 100;
+    color: var(--color-philippine-gray);
+  }
+
+  input {
+    accent-color: var(--color-philippine-gray);
+  }
+
+  button {
+    background-color: black;
+    border: none;
+    color: var(--color-philippine-gray);
+  }
+
+  button:hover {
+    color: black;
+    background-color: var(--color-philippine-gray);
+  }
+}
+
+.cardHolder {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto;
+  background-color: var(--color-dark-gray);
+  box-shadow: 0 0 5rem var(--color-brass);
+  min-width: 600px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 4rem 2rem;
+  grid-column-gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}

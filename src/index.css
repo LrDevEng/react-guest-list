@@ -8,21 +8,31 @@
   --color-philippine-gray: #8c8c8c;
   --color-dim-gray: #696969;
   --color-pastel-gray: #cfcfc5;
+  --color-dark-gray: #202020;
   --color-brass: #bea042;
-  --color-gold: #b28d34;
+  --color-gold: #d49d1b;
   --color-sunburst: #a07a28;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 2rem;
+  font-weight: 200;
+  color: var(--color-gold);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h3 {
+  line-height: 1.5;
+}
+
+h5 {
+  color: var(--color-philippine-gray);
 }

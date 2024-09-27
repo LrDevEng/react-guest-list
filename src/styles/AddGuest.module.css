@@ -1,0 +1,33 @@
+.addGuest {
+  padding: 2rem;
+
+  h1 {
+    text-decoration: underline;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      line-height: 2;
+    }
+
+    input {
+      padding-left: 2rem;
+      height: 4rem;
+      font-size: 2rem;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 100;
+      background-color: var(--color-dark-gray);
+      border: 2px solid var(--color-dim-gray);
+      color: var(--color-gold);
+    }
+
+    input:focus {
+      border: none;
+      background-color: black;
+      outline: 2px solid var(--color-gold);
+    }
+  }
+}
