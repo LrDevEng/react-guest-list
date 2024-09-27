@@ -4,6 +4,15 @@
   padding: 0;
 }
 
+:root {
+  --color-philippine-gray: #8c8c8c;
+  --color-dim-gray: #696969;
+  --color-pastel-gray: #cfcfc5;
+  --color-brass: #bea042;
+  --color-gold: #b28d34;
+  --color-sunburst: #a07a28;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,9 +25,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-input {
-  color: gold;
-  background-color: black;
 }
