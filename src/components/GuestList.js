@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import * as guestListApi from '../api/GuestListApi.js';
 import styles from '../styles/GuestList.module.css';
 import AddGuest from './AddGuest';
 import DisplayGuests from './DisplayGuests';
 import LoadingSpinner from './LoadingSpinner.js';
+import MenuSmall from './MenuSmall.js';
 
 export default function GuestList() {
   const [guests, setGuests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [showAddMenuSmall, setShowAddMenuSmall] = useState(false);
+
+  const deflate = useMediaQuery({ maxWidth: 1200 });
 
   // Initial fetch of guest list from api
   useEffect(() => {
@@ -64,16 +70,29 @@ export default function GuestList() {
 
   return (
     <div className={styles.guestList}>
-      <section className={styles.menu}>
-        <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
-      </section>
+      {deflate ? (
+        <MenuSmall
+          onMenuAction={() => {
+            setShowAddMenuSmall((prev) => !prev);
+          }}
+        >
+          {showAddMenuSmall && (
+            <section>
+              <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
+            </section>
+          )}
+        </MenuSmall>
+      ) : (
+        <section className={styles.menu}>
+          <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
+        </section>
+      )}
       <section className={styles.list}>
         <div className={styles.background} />
         <div className={styles.info}>
           {isLoading ? (
-            <div>
-              Loading...
-              <br />
+            <div className={styles.loading}>
+              <div>Loading...</div>
               <LoadingSpinner />
             </div>
           ) : (
