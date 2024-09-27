@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as guestListApi from '../api/GuestListApi.js';
+import styles from '../styles/GuestList.module.css';
 import AddGuest from './AddGuest';
 import DisplayGuests from './DisplayGuests';
 import LoadingSpinner from './LoadingSpinner.js';
@@ -62,21 +63,28 @@ export default function GuestList() {
   }
 
   return (
-    <div>
-      <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
-      {isLoading ? (
-        <div>
-          Loading...
-          <br />
-          <LoadingSpinner />
+    <div className={styles.guestList}>
+      <section className={styles.menu}>
+        <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
+      </section>
+      <section className={styles.list}>
+        <div className={styles.background} />
+        <div className={styles.info}>
+          {isLoading ? (
+            <div>
+              Loading...
+              <br />
+              <LoadingSpinner />
+            </div>
+          ) : (
+            <DisplayGuests
+              guests={guests}
+              deleteGuest={deleteGuest}
+              toggleAttendance={toggleAttendance}
+            />
+          )}
         </div>
-      ) : (
-        <DisplayGuests
-          guests={guests}
-          deleteGuest={deleteGuest}
-          toggleAttendance={toggleAttendance}
-        />
-      )}
+      </section>
     </div>
   );
 }
