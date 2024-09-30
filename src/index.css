@@ -22,6 +22,8 @@ body {
   font-size: 2rem;
   font-weight: 200;
   color: var(--color-gold);
+  background-image: url('../public/resources/prost.webp');
+  background-size: cover;
 }
 
 code {

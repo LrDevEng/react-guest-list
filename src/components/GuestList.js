@@ -68,6 +68,23 @@ export default function GuestList() {
       .catch((error) => console.log(error));
   }
 
+  // Delete all guests
+  function deleteAllGuests() {
+    const promises = [];
+    guests.forEach((guest) => {
+      promises.push(guestListApi.deleteGuest(guest.id));
+    });
+
+    Promise.all(promises)
+      .then(() => {
+        guestListApi
+          .getAllGuests()
+          .then((allGuests) => setGuests(allGuests))
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
     <div className={styles.guestList}>
       {deflate ? (
@@ -77,18 +94,25 @@ export default function GuestList() {
           }}
         >
           {showAddMenuSmall && (
-            <section style={{ visible: showAddMenuSmall }}>
-              <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
+            <section>
+              <AddGuest
+                disabled={isLoading}
+                handleNewGuest={handleNewGuest}
+                reset={deleteAllGuests}
+              />
             </section>
           )}
         </MenuSmall>
       ) : (
         <section className={styles.menu}>
-          <AddGuest disabled={isLoading} handleNewGuest={handleNewGuest} />
+          <AddGuest
+            disabled={isLoading}
+            handleNewGuest={handleNewGuest}
+            reset={deleteAllGuests}
+          />
         </section>
       )}
       <section className={styles.list}>
-        <div className={styles.background} />
         <div className={styles.info}>
           {isLoading ? (
             <div className={styles.loading}>
