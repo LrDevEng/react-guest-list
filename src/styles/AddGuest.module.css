@@ -13,7 +13,12 @@
     text-decoration: underline;
   }
 
-  form {
+  .flexColumn {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form {
     display: flex;
     flex-direction: column;
 

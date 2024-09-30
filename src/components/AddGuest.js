@@ -17,29 +17,40 @@ export default function AddGuest({ handleNewGuest, disabled, reset }) {
         <h5>Join today!</h5>
         <br />
         <br />
-        <form disabled={disabled} onSubmit={(event) => event.preventDefault()}>
-          <label htmlFor="first-name">First name</label>
-          <input
-            disabled={disabled}
-            id="first-name"
-            value={firstName}
-            onChange={(event) => setFirstName(event.currentTarget.value)}
-          />
-
-          <label htmlFor="last-name">Last name</label>
-          <input
-            disabled={disabled}
-            id="last-name"
-            value={lastName}
-            onChange={(event) => setLastName(event.currentTarget.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                handleNewGuest(firstName, lastName);
-                setFirstName('');
-                setLastName('');
-              }
-            }}
-          />
+        <form
+          className={styles.form}
+          disabled={disabled}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <div className={styles.flexColumn}>
+            <div className={styles.flexColumn}>
+              <label htmlFor="first-name">First name</label>
+              <br />
+              <input
+                disabled={disabled}
+                id="first-name"
+                value={firstName}
+                onChange={(event) => setFirstName(event.currentTarget.value)}
+              />
+            </div>
+            <div className={styles.flexColumn}>
+              <label htmlFor="last-name">Last name</label>
+              <br />
+              <input
+                disabled={disabled}
+                id="last-name"
+                value={lastName}
+                onChange={(event) => setLastName(event.currentTarget.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    handleNewGuest(firstName, lastName);
+                    setFirstName('');
+                    setLastName('');
+                  }
+                }}
+              />
+            </div>
+          </div>
         </form>
       </div>
       <button onClick={reset}>Reset</button>

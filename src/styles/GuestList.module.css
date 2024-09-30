@@ -5,6 +5,7 @@
 }
 
 .menu {
+  width: fit-content;
   background-color: var(--color-dark-gray);
   z-index: 1;
   min-height: 100vh;
