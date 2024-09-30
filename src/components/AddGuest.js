@@ -25,6 +25,7 @@ export default function AddGuest({ handleNewGuest, disabled, reset }) {
           <div className={styles.flexColumn}>
             <div className={styles.flexColumn}>
               <label htmlFor="first-name">First name</label>
+              <br />
               <input
                 disabled={disabled}
                 id="first-name"
@@ -34,6 +35,7 @@ export default function AddGuest({ handleNewGuest, disabled, reset }) {
             </div>
             <div className={styles.flexColumn}>
               <label htmlFor="last-name">Last name</label>
+              <br />
               <input
                 disabled={disabled}
                 id="last-name"
