@@ -1,18 +1,57 @@
 import styles from '../styles/DisplayGuests.module.css';
+import { guestFilters } from '../util/stateObjects';
 
 export default function DisplayGuests({
   guests,
   deleteGuest,
   toggleAttendance,
+  filterType,
+  setFilterType,
 }) {
-  if (guests.length === 0) {
-    return <div />;
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.cardHolder}>
         <h2>Our VIPs</h2>
+        <div>
+          <fieldset>
+            <legend>Filter</legend>
+            <input
+              type="radio"
+              name="filter"
+              value={guestFilters.showAll}
+              id="none"
+              checked={filterType === guestFilters.showAll}
+              onChange={(event) => {
+                setFilterType(event.target.value);
+              }}
+            />
+            <label htmlFor="none">None</label>
+
+            <input
+              type="radio"
+              name="filter"
+              value={guestFilters.showAttending}
+              id="attending"
+              checked={filterType === guestFilters.showAttending}
+              onChange={(event) => {
+                setFilterType(event.target.value);
+              }}
+            />
+            <label htmlFor="attending">Attending</label>
+
+            <input
+              type="radio"
+              name="filter"
+              value={guestFilters.showNotAttending}
+              id="notAttending"
+              checked={filterType === guestFilters.showNotAttending}
+              onChange={(event) => {
+                setFilterType(event.target.value);
+              }}
+            />
+            <label htmlFor="notAttending">Not Attending</label>
+          </fieldset>
+        </div>
         <div className={styles.card}>
           <h6>Name</h6>
           <h6>Surname</h6>
