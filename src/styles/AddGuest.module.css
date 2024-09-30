@@ -13,6 +13,11 @@
     text-decoration: underline;
   }
 
+  .flexColumn {
+    display: flex;
+    flex-direction: column;
+  }
+
   .form {
     display: flex;
     flex-direction: column;
